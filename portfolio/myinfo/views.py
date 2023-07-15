@@ -1,7 +1,10 @@
 from rest_framework.decorators import api_view
+from rest_framework import generics
 from rest_framework.response import Response
 from .models import MyInfo, Home, Projects, Contact, Skills, SocialMediaLinks, WorkExperience, ExamCracked, ParticipationCertificate, OtherSkill
 from .serializers import MyInfoSerializer, HomeSerializer, ProjectsSerializer, ContactSerializer, SkillsSerializer, SocialMediaLinksSerializer,WorkExperienceSerializer, ExamCrackedSerializer, ParticipationCertificateSerializer, OtherSkillSerializer
+from .models import GalleryImage
+from .serializers import GalleryImageSerializer
 
 @api_view(['GET'])
 def MyInfo_view(request):
@@ -69,4 +72,10 @@ def participation_certificate_list(request):
 def other_skill_list(request):
     other_skills = OtherSkill.objects.all()
     serializer = OtherSkillSerializer(other_skills, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def gallery_image_list(request):
+    gallery_images = GalleryImage.objects.all()
+    serializer = GalleryImageSerializer(gallery_images, many=True)
     return Response(serializer.data)

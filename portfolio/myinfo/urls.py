@@ -12,4 +12,6 @@ urlpatterns = [
     path('exam-cracked/', views.exam_cracked_list, name='exam_cracked_list'),
     path('participation-certificates/', views.participation_certificate_list, name='participation_certificate_list'),
     path('other-skills/', views.other_skill_list, name='other_skill_list'),
+    path('gallery-images/', views.gallery_image_list, name='gallery-images'),
 ]
+

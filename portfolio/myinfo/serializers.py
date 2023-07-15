@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import MyInfo, Home, Projects, Contact, Skills, SocialMediaLinks,WorkExperience, ExamCracked, ParticipationCertificate, OtherSkill
-
+from .models import GalleryImage
 
 class MyInfoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -52,3 +52,8 @@ class OtherSkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = OtherSkill
         fields = ['id', 'skill']
+
+class GalleryImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GalleryImage
+        fields = '__all__'
